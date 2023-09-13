@@ -9,7 +9,28 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			let highest = -Infinity;
+  let secondHighest = -Infinity;
+
+  // Iterate through the array
+  for (let i = 0; i < arr.length; i++) {
+    const current = arr[i];
+
+    // Update highest and secondHighest accordingly
+    if (current > highest) {
+      secondHighest = highest;
+      highest = current;
+    } else if (current > secondHighest && current !== highest) {
+      secondHighest = current;
+    }
+  }
+
+  // Check for edge cases
+  if (arr.length < 2 || highest === secondHighest) {
+    return -Infinity;
+  }
+
+  return secondHighest;
 			
 		}
 
